@@ -1,0 +1,40 @@
+{
+  "name": "craigslist-wayback-apa",
+  "version": "1.0.0",
+  "description": "Fetch archived RSS feeds from the craigslist apa section on archive.org",
+  "main": "index.js",
+  "scripts": {
+    "test": "coffee -c test/tests.coffee && make test",
+    "debug": "node-debug _mocha",
+    "coverage": "istanbul cover _mocha test --recursive -- -u      exports -R spec",
+    "build": "browserify index.js > dist/bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/csbrandt/craigslist-wayback-apa.git"
+  },
+  "keywords": [
+    "craigslist",
+    "apartments",
+    "housing",
+    "rentals",
+    "wayback"
+  ],
+  "author": "csbrandt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/csbrandt/craigslist-wayback-apa/issues"
+  },
+  "homepage": "https://github.com/csbrandt/craigslist-wayback-apa",
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "expect.js": "^0.3.1",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.4.5"
+  },
+  "dependencies": {
+    "craigslist-apa-parse": "^1.2.0",
+    "request": "^2.69.0",
+    "wayback-machine": "^0.1.0"
+  }
+}
