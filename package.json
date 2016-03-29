@@ -1,6 +1,6 @@
 {
   "name": "craigslist-wayback-apa",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Fetch archived RSS feeds from the craigslist apa section on archive.org",
   "main": "index.js",
   "scripts": {

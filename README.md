@@ -10,19 +10,19 @@ Function
 --------
 get(options, cb)
 > **options**:  *object*, request options
-   + city: where to collect apa feeds
-   + start: date to collect feeds from
-   + end: date to collect feeds to
+>   + city: where to collect apa feeds
+>   + start: date to collect feeds from
+>   + end: date to collect feeds to
 >
 > **cb**:  *Function(error, posts)*, callback function
 > + error: *Error*, passed when issue encountered requesting feed
 > + posts: *array*, JSON array of posts with the following schema,
-   + date
-   + title
-   + location
-   + price
-   + bedroom
-   + url
+>   + date
+>   + title
+>   + location
+>   + price
+>   + bedroom
+>   + url
 
 
 Running Tests

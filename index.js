@@ -4,7 +4,8 @@ var parser  = require('craigslist-apa-parse');
 var collector = exports;
 
 collector.get = function(options, cb) {
-   wayback.getTimeline('https://' + options.city + '.craigslist.org/apa/index.rss', function(err, timeline) {
+   var section = (options.city === 'newyork' || options.city === 'boston') ? 'aap' : 'apa';
+   wayback.getTimeline('https://' + options.city + '.craigslist.org/' + section + '/index.rss', function(err, timeline) {
       var mementos;
       var parsed = [];
       var amount = 0;
