@@ -29962,6 +29962,7 @@ var parens = /(\()([^\)]*)(\))/;
 var dollars = /(\$)[A-Fa-f\d]+\b/;
 var uniDollars = /(\&\#x0024\;)[A-Fa-f\d]+\b/;
 var bd = /\d\d*(?=bd)/g;
+var nonAlphanum = /[^a-zA-Z\d\s]/g;
 var parser = exports;
 
 parser.parse = function(rss, cb) {
@@ -29979,7 +29980,10 @@ parser.parse = function(rss, cb) {
       while (item = this.read()) {
          tokens = item.title.split(parens);
          city = url.parse(item.link).host.split('.')[0];
-         location = (tokens.length > 3) ? tokens[tokens.lastIndexOf('(') + 1] + ' ' + city : undefined;
+         location = (tokens.length > 3) ? (tokens[tokens.lastIndexOf('(') + 1] + ',' + city)
+                                          .split(nonAlphanum)
+                                          .map(Function.prototype.call, String.prototype.trim)
+                                          .join(',') : undefined;
          price = tokens[tokens.length - 1].match(dollars) || tokens[tokens.length - 1].match(uniDollars);
          price = (price && price.length) ? price[0].replace('&#x0024;', '').replace('$', '') : undefined;
          bedroom = item.title.match(bd);
